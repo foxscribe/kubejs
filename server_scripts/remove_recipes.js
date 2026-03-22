@@ -5,6 +5,8 @@ var armour = ['mekanismtools:steel_helmet', 'mekanismtools:steel_chestplate', 'm
 
 var machines = ['mekanismgenerators:heat_generator', 'mekanismgenerators:solar_generator', 'mekanismgenerators:advanced_solar_generator', 'mekanismgenerators:wind_generator', 'mekanismgenerators:bio_generator', 'mekanismgenerators:gas_burning_generator', 'mekanism:digital_miner']
 
+var by_recipe_id = ['mekanism:control_circuit/basic', 'mekanism:control_circuit/advanced', 'mekanism:control_circuit/elite', 'mekanism:control_circuit/ultimate', 'mekanism:control_circuit/infused_advanced', 'mekanism:control_circuit/infused_elite', 'mekanism:control_circuit/infused_ultimate']
+
 ServerEvents.recipes(event => {
   tools.forEach(tool => {
     event.remove({ output: tool })
@@ -16,6 +18,10 @@ ServerEvents.recipes(event => {
 
   machines.forEach(machine => {
     event.remove({ output: machine })
+  })
+
+  by_recipe_id.forEach(machine => {
+    event.remove({ id: machine })
   })
 })
 
